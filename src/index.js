@@ -11,6 +11,7 @@ io.on('connection', socket=>{
 
   socket.on('sendMessage', data=>{
     messages.push(data)
+    socket.emit('receivedMessage', data)
     socket.broadcast.emit('receivedMessage', data)
   })
 })
